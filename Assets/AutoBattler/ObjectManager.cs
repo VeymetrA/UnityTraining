@@ -38,6 +38,11 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    public void Test()
+    {
+
+    }
+
     public void CreatePlayer()
     {
         GameObject player = _playerPool.Spawn();
