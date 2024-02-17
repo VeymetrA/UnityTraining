@@ -7,6 +7,7 @@ public class ObjectManager : MonoBehaviour
     [SerializeField] private ObjectPool _playerPool;
     [SerializeField] private ObjectPool _enemyPool;
     public Waves waves;
+    public string hello = "Привет!";
 
     // Start is called before the first frame update
     IEnumerator Start()
