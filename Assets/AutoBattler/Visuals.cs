@@ -18,10 +18,10 @@ public class Visuals : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(changeColor());
+        StartCoroutine(ChangeColor());
     }
 
-    IEnumerator changeColor()
+    IEnumerator ChangeColor()
     {
         if (!waiting)
         {

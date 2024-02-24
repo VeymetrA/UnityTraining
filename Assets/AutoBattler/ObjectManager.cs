@@ -1,6 +1,10 @@
 using Assets.Scripts.Patterns;
 using System.Collections;
+using System.Drawing;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -36,11 +40,6 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
-    public void Test()
-    {
-
-    }
-
     public void CreatePlayer()
     {
         GameObject player = _playerPool.Spawn();
@@ -49,18 +48,3 @@ public class ObjectManager : MonoBehaviour
         playerDamaging.pool = _playerPool;
     }
 }
-
-// - Прописал логику появления волн. Проблема: хотя по логу видно, что все работает
-//   корректно, т.е. появляются волны по 2, 4, 6, 8 и 10 врагов, по факту визуально
-//   видно, что на сцене вместо этого появляются 2, 4, 5, 7, 8 врагов. Почему?
-
-// - Настроил параметр moveAgain в enemy
-
-// - Поменял внешний вид, все перекрасил и добавил врагам изменение цвета через корутину
-
-// Далее - предусмотреть получение урона при нахождении в радиусе поражения?
-// Добавить активную кнопку с кулдауном, которая будет производить какое-то действие?
-// Например, урон по площади или заморозка, может сопровождаться визульными эффектами.
-// UPD: Пока добавил Heal на G. 
-// UPD: Добавил еще Fear на F, но пока из-за этого убегают игроки. См. комментарии в том скрипте.
-// UPD: Попытался сделать ресурс Rage для Fear и Heal, пока застрял на настройке полотна и текста

@@ -7,12 +7,14 @@ public class CharacterMovement : MonoBehaviour
     public float attackRange;
     public int attackSpeed;
     private Animator _animator;
+    private Rigidbody2D _rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -26,15 +28,22 @@ public class CharacterMovement : MonoBehaviour
             {
                 _animator.SetBool("moveAgain", false);
                 _animator?.CrossFade("Attack", 0);
+                _rb.velocity = Vector3.zero;
                 return;
             }
         }
         _animator.SetBool("moveAgain", true);
-        transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+        //transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+
+        _rb.velocity = Vector3.right * movementSpeed;
     }
 
     public void CharacterAttack()
     {
+        if (otherObject == null)
+        {
+            return;
+        }
         transform.GetComponent<Damaging>().Attack(otherObject.GetComponent<Damaging>());
         //возможность урона по области
     }
